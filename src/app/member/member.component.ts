@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Member } from 'src/Modeles/Member';
+import { MemberService } from '../member.service';
 
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css']
 })
-export class MemberComponent {
-  dataSource: any[] = [
-    { id: 1, cin: '12345678', name: 'John Doe', type: 'member', createdDate: '2123'},
-    { id: 2, cin: '87654321', name: 'Jane Smith', type: 'member', createdDate: '2123'},
-  ];
+export class MemberComponent implements OnInit {
+
+  //injec de dependances
+  constructor(private memberService: MemberService) { }
+  //declarer le tableau
+  dataSource: Member[] = [];
   displayedColumns: string[] = ['id', 'cin', 'name', 'type', 'createdDate', 'actions'];
+  ngOnInit(): void {
+    //appeler le service et attendre la reponse
+    this.memberService.GetAllMembers().subscribe((data) => {  
+      this.dataSource = data;
+    });
+  }
 }
