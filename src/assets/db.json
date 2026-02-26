@@ -1,18 +1,11 @@
 {
-    "members": [
-        {
-            "id": "1",
-            "cin": "12345678",
-            "name": "John Doe",
-            "type": "member",
-            "createdDate": "2123"
-        },
-        {
-            "id": "2",
-            "cin": "87654321",
-            "name": "Jane Smith",
-            "type": "member",
-            "createdDate": "2123"
-        }
-    ]
+  "members": [
+    {
+      "id": "1",
+      "cin": "12345678",
+      "name": "John Doe",
+      "type": "member",
+      "createdDate": "2123"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/Modeles/Member';
-import { MemberService } from '../member.service';
+import { MemberService } from '../../Services/member.service';
 
 @Component({
   selector: 'app-member',
@@ -18,6 +18,18 @@ export class MemberComponent implements OnInit {
     //appeler le service et attendre la reponse
     this.memberService.GetAllMembers().subscribe((data) => {  
       this.dataSource = data;
+    });
+  }
+
+  deleteMember(id: string) {
+    this.memberService.DeleteMember(id).subscribe(() => {
+      // Remove the deleted member from the dataSource array
+      // this.dataSource = this.dataSource.filter(member => member.id !== id);
+
+      // Alternatively, you can refresh the member list by calling GetAllMembers again
+      this.memberService.GetAllMembers().subscribe((data) => {
+        this.dataSource = data;
+      });
     });
   }
 }
