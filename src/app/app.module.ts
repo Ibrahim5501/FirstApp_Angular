@@ -13,12 +13,29 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmComponent } from './confirm/confirm.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { TemplateComponent } from './template/template.component'; 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { EventComponent } from './event/event.component';
+import { ArticleComponent } from './article/article.component';
+import { ToolComponent } from './tool/tool.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    ConfirmComponent,
+    TemplateComponent,
+    EventComponent,
+    ArticleComponent,
+    ToolComponent,
+    DashboardComponent
   ],
   imports: [
     MatIconModule,
@@ -32,6 +49,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
