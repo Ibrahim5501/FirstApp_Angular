@@ -14,5 +14,28 @@
       "type": "kjgdfh",
       "createdDate": "jkfdhg"
     }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "title": "Event 1",
+      "datedebut": "2023-01-01",
+      "datefin": "2023-01-02",
+      "place": "Place 1"
+    },
+    {
+      "id": "2",
+      "title": "Event 2",
+      "datedebut": "2023-02-01",
+      "datefin": "2023-02-02",
+      "place": "Place 2"
+    },
+    {
+      "id": "0eea",
+      "title": "fdjk",
+      "datedebut": "gjfh",
+      "datefin": "gjk",
+      "place": "dfjkgf"
+    }
   ]
 }

@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolComponent } from './tool/tool.component';
 import { ArticleComponent } from './article/article.component';
 import { EventComponent } from './event/event.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path: 'events', component: EventComponent
+  },
+  {
+    path: 'events/create', component: EventCreateComponent
   },
   {
     path: '**', component: MemberComponent
