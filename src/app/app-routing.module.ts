@@ -37,6 +37,9 @@ const routes: Routes = [
     path: 'events/create', component: EventCreateComponent
   },
   {
+    path: 'events/:id/edit', component: EventCreateComponent
+  },
+  {
     path: '**', component: MemberComponent
   }
 ];

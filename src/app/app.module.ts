@@ -27,6 +27,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { EventCreateComponent } from './event-create/event-create.component';
     ToolComponent,
     DashboardComponent,
     EventCreateComponent,
+    EventDetailsComponent,
   ],
   imports: [
     MatIconModule,
@@ -60,6 +64,8 @@ import { EventCreateComponent } from './event-create/event-create.component';
     MatMenuModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

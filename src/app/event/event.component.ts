@@ -2,12 +2,13 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Evt } from 'src/Modeles/Evt';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import { EventService } from 'src/Services/event.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViewChild } from '@angular/core';
 import { EventCreateComponent } from '../event-create/event-create.component';
+import { EventDetailsComponent } from '../event-details/event-details.component';
 
 @Component({
   selector: 'app-event',
@@ -23,9 +24,9 @@ export class EventComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private eventService: EventService, private dialog: MatDialog) {}
+  constructor(private eventService: EventService, private dialog: MatDialog) { }
 
-  
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -73,7 +74,43 @@ export class EventComponent implements AfterViewInit, OnInit {
     });
   }
 
-  create(){
-    this.dialog.open(EventCreateComponent);
+  create() {
+    let dialogC = this.dialog.open(EventCreateComponent);
+    // after closing the dialog, post the new event to the server and refresh the event list
+    dialogC.afterClosed().subscribe((res) => {
+      if (res) {
+        // appel du service (fonction POST)
+        this.eventService.AddEvent(res).subscribe(() => {
+
+        });
+      }
+    });
+  }
+
+  openEdit(id: string) {
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.data = id;
+    let dialogC = this.dialog.open(EventCreateComponent, DialogConfig);
+    // envoyer des données à la boite de dialogue (l'id de l'evenement à modifier)
+    // after closing the dialog, post the updated event to the server and refresh the event list
+    dialogC.afterClosed().subscribe((res) => {
+      if (res) {
+        // appel du service (fonction PUT)
+        this.eventService.UpdateEvent(id, res).subscribe(() => {
+
+        });
+      }
+    });
+  }
+
+  openDetails(id: string) {
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.data = id;
+    this.dialog.open(EventDetailsComponent, DialogConfig);
+    
+  }
+
+  openParticipants(id: string) {
+    // navigate to the participants page of the event with the given id
   }
 }
