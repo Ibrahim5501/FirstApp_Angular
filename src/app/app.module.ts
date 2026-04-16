@@ -30,6 +30,10 @@ import { EventCreateComponent } from './event-create/event-create.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { firebaseConfig } from './env';
+import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     DashboardComponent,
     EventCreateComponent,
     EventDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     MatIconModule,
@@ -66,6 +71,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     MatSortModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

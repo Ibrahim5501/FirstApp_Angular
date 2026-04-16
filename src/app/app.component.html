@@ -2,5 +2,9 @@
 <!--<app-member></app-member>-->
 
 <router-outlet></router-outlet>
-
-<app-template></app-template>
+<div *ngIf="!isLogin">
+  <app-template></app-template>
+</div>
+<div *ngIf="isLogin">
+  <app-login></app-login>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/Services/auth.service';
 
 @Component({
   selector: 'app-template',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class TemplateComponent {
 
+  constructor(private As: AuthService, private router: Router) {}
+
+  Logout(){
+    this.As.signOut().then(() => {
+      this.router.navigate(['/login']);
+    })
+  }
 }

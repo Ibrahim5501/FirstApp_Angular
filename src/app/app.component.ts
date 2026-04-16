@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private router: Router) {}
+
+
   title = 'FirstApp';
+  isLogin: boolean = false;
+
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      this.isLogin = this.router.url.includes('login');
+      console.log(this.isLogin);
+    });
+  }
 }

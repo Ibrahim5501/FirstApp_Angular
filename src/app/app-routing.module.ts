@@ -7,40 +7,45 @@ import { ToolComponent } from './tool/tool.component';
 import { ArticleComponent } from './article/article.component';
 import { EventComponent } from './event/event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from 'src/Services/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'create', component: MemberFormComponent
+    path: '', component: LoginComponent
   },
   {
-    path: '', component: MemberComponent
+    path: 'login', component: LoginComponent
   },
   {
-    path: ':id/edit', component: MemberFormComponent
+    path: 'create', component: MemberFormComponent, canActivate: [authGuard]
   },
   {
-    path: 'member', component: MemberComponent
+    path: ':id/edit', component: MemberFormComponent, canActivate: [authGuard]
   },
   {
-    path: 'dashboard', component: DashboardComponent
+    path: 'member', component: MemberComponent, canActivate: [authGuard]
   },
   {
-    path: 'tools', component: ToolComponent
+    path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]
   },
   {
-    path: 'articles', component: ArticleComponent
+    path: 'tools', component: ToolComponent, canActivate: [authGuard]
   },
   {
-    path: 'events', component: EventComponent
+    path: 'articles', component: ArticleComponent, canActivate: [authGuard]
   },
   {
-    path: 'events/create', component: EventCreateComponent
+    path: 'events', component: EventComponent, canActivate: [authGuard]
   },
   {
-    path: 'events/:id/edit', component: EventCreateComponent
+    path: 'events/create', component: EventCreateComponent, canActivate: [authGuard]
   },
   {
-    path: '**', component: MemberComponent
+    path: 'events/:id/edit', component: EventCreateComponent, canActivate: [authGuard]
+  },
+  {
+    path: '**', component: MemberComponent, canActivate: [authGuard]
   }
 ];
 
