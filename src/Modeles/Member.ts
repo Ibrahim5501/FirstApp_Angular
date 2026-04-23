@@ -1,7 +1,10 @@
+import { Evt } from "./Evt";
+
 export interface Member {
-    id: String;
-    cin: String;
-    name: String;
-    type: String;
-    createdDate: String;
+    id: string;
+    cin: string;
+    name: string;
+    type: string;
+    createdDate: string;
+    tab_Events: Evt[];
 }

@@ -52,14 +52,14 @@ export class MemberFormComponent implements OnInit {
       // If there is an ID, call the UpdateMember method of the MemberService
       this.MS.UpdateMember(this.idcourant, this.form.value).subscribe(() => {
         // redirect to the member list page after successfully updating a member
-        this.router.navigate(['']);
+        this.router.navigate(['/members']);
       });
       return; // exit the function to avoid calling AddMember
     } else {
       // call the AddMember method of the MemberService and subscribe to the response
       this.MS.AddMember(this.form.value).subscribe(() => {
         // redirect to the member list page after successfully adding a member
-        this.router.navigate(['']);
+        this.router.navigate(['/members']);
       });
     }
   }

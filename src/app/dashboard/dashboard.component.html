@@ -1,1 +1,45 @@
-<p>dashboard works!</p>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Nb Members</mat-card-title>
+    <mat-card-subtitle>{{ nbMembers }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Nb Events</mat-card-title>
+    <mat-card-subtitle>{{ nbEvents }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Nb Tools</mat-card-title>
+    <mat-card-subtitle>{{ nbTools }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<div class="charts-container">
+  <style>
+    .charts-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .chart-wrapper {
+      width: 45%;
+    }
+  </style>
+  <div class="chart-wrapper">
+    <canvas baseChart [type]="'doughnut'" [datasets]="chartDataDoughnut" [labels]="chartLabelsDoughnut" [options]="chartOptions">
+    </canvas>
+  </div>
+
+  <div class="chart-wrapper">
+    <canvas baseChart [type]="'pie'" [datasets]="chartDataPie" [labels]="chartLabelsPie" [options]="chartOptions">
+    </canvas>
+  </div>
+
+  <div class="chart-wrapper">
+    <canvas baseChart [type]="'line'" [datasets]="chartDataLine" [labels]="chartLabelsLine" [options]="chartOptions">
+    </canvas>
+  </div>
+</div>

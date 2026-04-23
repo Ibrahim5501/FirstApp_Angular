@@ -19,7 +19,7 @@ export class LoginComponent {
     // appel du service => envoyer JWT
     this.As.signInWithEmailAndPassword(this.email, this.password)
     .then(() => {
-      this.router.navigate(['/member'])
+      this.router.navigate(['/dashboard']);
     })
   }
 }
