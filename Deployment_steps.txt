@@ -1,0 +1,28 @@
+cmd
+> npm install -g firebase-tools
+> firebase login
+
+move to project folder
+> firebase init
+> proceed? Yes
+> select Hosting
+> Use an existing project
+> Use App Hosting? No
+> public directory? angular.json -> projects -> architect -> build -> options -> outputPath value => dist/first-app
+> configure as a single-page app? No
+> automatic build and deploys with Github? Yes
+> Github repository? Ibrahim5501/FirstApp_Angular
+> set up workflow to run a build script? No
+> set up automatic deployment? No
+> install agent skills? No
+
+dans angular.json -> projects -> architect -> build -> options: ajouter "baseHref": "/",
+dans angular.json -> projects -> architect -> build -> configurations -> production -> budgets: modifier "maximumWarning": "2mb", "maximumError": "3mb"
+
+> ng build --configuration production
+> firebase deploy
+Hosting URL: https://angular-1ffc3.web.app
+
+after changes:
+> ng build --configuration production
+> firebase deploy
