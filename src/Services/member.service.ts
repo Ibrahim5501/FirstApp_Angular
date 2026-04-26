@@ -30,7 +30,7 @@ export class MemberService {
 
   // This method uses HTTP PATCH to update only the fields that are provided in the member object, 
   // rather than replacing the entire member resource.
-  UpdateMember2(id: string, type: String): Observable<void> {
+  UpdateMember2(id: string, type: string): Observable<void> {
     return this.httpClient.patch<void>(`http://localhost:3000/members/${id}`, {Type: type, name: "modified"});
   }
 
